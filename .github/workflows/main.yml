@@ -10,6 +10,8 @@ jobs:
         - uses: actions/checkout@v2
         - name: go in the studio
           run: cd studio
+        - name: go in the studio
+          run: ls -R  
         - uses: sanity-io/github-action-sanity@v0.1-alpha
           env:
             SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
