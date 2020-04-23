@@ -1,6 +1,6 @@
 name: SANITY
 env:
-  STUDIO_PATH: $GITHUB_WORKSPACE/studio
+  STUDIO_PATH: ${{ github.workspace }}/studio
 on:
     push:
       branches: [ master ]
