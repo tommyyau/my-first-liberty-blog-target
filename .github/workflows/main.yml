@@ -1,4 +1,6 @@
 name: SANITY
+env:
+  STUDIO_PATH: $GITHUB_WORKSPACE/studio
 on:
     push:
       branches: [ master ]
@@ -7,11 +9,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
-          with:
-              path: studio
         - uses: sanity-io/github-action-sanity@v0.1-alpha
           env:
             SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
             repo_name: ${{ github.event.repository.name }}
           with: 
             args: init --create-project ${{env.repo_name}} --dataset production --reconfigure
+            path: ${{STUDIO_PATH}}
