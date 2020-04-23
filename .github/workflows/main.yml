@@ -7,6 +7,8 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
+        - name: te
+          uses: studio
         - uses: sanity-io/github-action-sanity@v0.1-alpha
           env:
             SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
