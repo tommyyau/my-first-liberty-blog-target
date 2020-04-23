@@ -8,7 +8,11 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: ls
-          run: |
-               ls -d
-               pwd  
+          run: pwd  
           working-directory: ./studio
+        - uses: sanity-io/github-action-sanity@v0.1-alpha
+          env:
+            SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+            repo_name: ${{ github.event.repository.name }}
+          with: 
+            args: init --create-project ${{env.repo_name}} --dataset production --reconfigure
