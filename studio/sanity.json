@@ -1,11 +1,11 @@
 {
   "root": true,
   "project": {
-    "name": "Blog with Gatsby"
+    "name": "<project-name>"
   },
   "api": {
-    "projectId": "qgusgenx",
-    "dataset": "production"
+    "projectId": "<project-id>",
+    "dataset": "<dataset>"
   },
   "plugins": [
     "@sanity/base",
