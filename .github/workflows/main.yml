@@ -5,11 +5,10 @@ on:
 jobs:
     build:
       runs-on: ubuntu-latest
-      if: "contains(github.event.head_commit.message, 'Initial Commit')"
       steps:
         - uses: actions/checkout@v2
         - name: go in the studio
-          run: cd ./studio
+          run: cd /home/runner/work/my-first-liberty-blog/my-first-liberty-blog/studio
         - name: ls
           run: |
                ls -d
