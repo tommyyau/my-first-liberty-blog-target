@@ -11,7 +11,7 @@ jobs:
         - name: go in the studio
           run: cd studio
         - name: go to studio
-          run: ls -R  
+          run: ls -d 
         - uses: sanity-io/github-action-sanity@v0.1-alpha
           env:
             SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
