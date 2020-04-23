@@ -1,0 +1,21 @@
+name: SANITY
+on:
+    push:
+      branches: [ master ]
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      if: "contains(github.event.head_commit.message, 'Initial Commit')"
+      steps:
+        - uses: actions/checkout@v2
+        - name: go in the studio
+          run: cd studio
+        - uses: sanity-io/github-action-sanity@v0.1-alpha
+          env:
+            SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+            repo_name: ${{ github.event.repository.name }}
+          with: 
+            args: init --create-project ${{env.repo_name}} --dataset production --reconfigure
+        - uses: stefanzweifel/git-auto-commit-action@v4.1.4
+          with:
+            commit_message: Project creation complete
