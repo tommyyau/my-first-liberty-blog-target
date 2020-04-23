@@ -9,15 +9,8 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - name: go in the studio
-          run: cd studio
+          run: cd ./studio
         - name: ls
-          run: ls -d 
-        - uses: sanity-io/github-action-sanity@v0.1-alpha
-          env:
-            SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-            repo_name: ${{ github.event.repository.name }}
-          with: 
-            args: init --create-project ${{env.repo_name}} --dataset production --reconfigure
-        - uses: stefanzweifel/git-auto-commit-action@v4.1.4
-          with:
-            commit_message: Project creation complete
+          run: |
+               ls -d
+               pwd  
