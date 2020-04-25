@@ -21,9 +21,9 @@ jobs:
                echo ::set-env name=PROJECT_NAME::$(echo PROJECT_NAME | jq .project.name temp/sanity.json)
         - name: Test
           run: |
-               sed -i -e 's/"PROJECT_ID"/'$PROJECT_ID'/g' sanity.json
-               sed -i -e 's/"DATASET_ID"/'$DATASET'/g' sanity.json
-               sed -i -e 's/"PROJECT_NAME"/'$PROJECT_NAME'/g' sanity.json
+               sed -i -e 's/"PROJECT_ID"/'$PROJECT_ID'/g' studio/sanity.json
+               sed -i -e 's/"DATASET_ID"/'$DATASET'/g' studio/sanity.json
+               sed -i -e 's/"PROJECT_NAME"/'$PROJECT_NAME'/g' studio/sanity.json
                sudo rm -r temp
         - uses: stefanzweifel/git-auto-commit-action@v4.1.4
           with:
