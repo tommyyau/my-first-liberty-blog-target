@@ -5,13 +5,26 @@ on:
 jobs:
     build:
       runs-on: ubuntu-latest
+      if: "contains(github.event.head_commit.message, 'Initial Commit')"
       steps:
         - uses: actions/checkout@v2
-          with:
-              path: studio
         - uses: sanity-io/github-action-sanity@v0.1-alpha
           env:
-            SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
             repo_name: ${{ github.event.repository.name }}
+            SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
           with: 
-            args: init -y --create-project ${{env.repo_name}} --dataset production --output-path temp
+            args: init -y --create-project ${{env.repo_name}} --dataset dbset --output-path temp
+        - name: Set env
+          run: |
+               echo ::set-env name=PROJECT_ID::$(echo PROJECT_ID | jq .api.projectId temp/sanity.json)
+               echo ::set-env name=DATASET::$(echo DATASET | jq .api.dataset temp/sanity.json)
+               echo ::set-env name=PROJECT_NAME::$(echo PROJECT_NAME | jq .project.name temp/sanity.json)
+        - name: Test
+          run: |
+               sed -i -e 's/"PROJECT_ID"/'$PROJECT_ID'/g' sanity.json
+               sed -i -e 's/"DATASET_ID"/'$DATASET'/g' sanity.json
+               sed -i -e 's/"PROJECT_NAME"/'$PROJECT_NAME'/g' sanity.json
+               sudo rm -r temp
+        - uses: stefanzweifel/git-auto-commit-action@v4.1.4
+          with:
+            commit_message: Project creation complete
