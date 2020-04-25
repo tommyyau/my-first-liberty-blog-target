@@ -14,4 +14,4 @@ jobs:
             SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
             repo_name: ${{ github.event.repository.name }}
           with: 
-            args: init --create-project ${{env.repo_name}} --dataset production --reconfigure
+            args: init -y --create-project ${{env.repo_name}} --dataset production --output-path temp
