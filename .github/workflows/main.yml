@@ -1,4 +1,4 @@
-name: SANITY
+name: SANITY 1
 on:
     push:
       branches: [ master ]
