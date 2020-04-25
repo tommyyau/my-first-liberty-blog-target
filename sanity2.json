@@ -1,11 +1,11 @@
 {
   "root": true,
   "project": {
-    "name": "projectAmrut"
+    "name": "PROJECT_NAME"
   },
   "api": {
-    "projectId": "anbd35HY",
-    "dataset": "prod"
+    "projectId": "PROJECT_ID",
+    "dataset": "DATASET_ID"
   },
   "plugins": [
     "@sanity/base",
