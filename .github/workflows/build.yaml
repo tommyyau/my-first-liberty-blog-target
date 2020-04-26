@@ -1,10 +1,7 @@
-name: Development workflow
-
+name: Build
 on:
-  push:
-    branches:
-      - dev
-
+    push:
+      branches: [ master ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,13 +14,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - run: npm install
-      - run: npm run build-studio && cp studio/netlify.toml studio/dist
+      - run: |
+             npm install
+             npm run build-studio && cp studio/netlify.toml studio/dist
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.DEV_NETLIFY_SITE_ID }}
         with:
-          args: deploy --dir=build --prod
+          args: deploy --dir=studio/dist --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
