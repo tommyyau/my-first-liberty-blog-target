@@ -1,4 +1,4 @@
-name: Liberty Theme Project Setup
+name: Platform Liberty Theme Project Setup
 on:
     push:
       branches: [ master ]
