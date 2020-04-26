@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: 12.x
       - name: install n build
+        env:
+            SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
         run: |
              npm install
              npm run build-web
