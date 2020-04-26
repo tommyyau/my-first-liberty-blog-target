@@ -24,6 +24,8 @@ jobs:
                sed -i -e 's/"PROJECT_ID"/'$PROJECT_ID'/g' studio/sanity.json
                sed -i -e 's/"DATASET_ID"/'$DATASET'/g' studio/sanity.json
                sed -i -e 's/"PROJECT_NAME"/'$PROJECT_NAME'/g' studio/sanity.json
+               sed -i -e 's/"PROJECT_ID"/'$PROJECT_ID'/g' web/.env.production
+               sed -i -e 's/"DATASET_ID"/'$DATASET'/g' web/.env.production
                sudo rm -r temp
         - uses: stefanzweifel/git-auto-commit-action@v4.1.4
           with:
