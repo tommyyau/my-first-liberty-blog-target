@@ -1,11 +1,11 @@
 {
   "root": true,
   "project": {
-    "name": "my-first-liberty-blog"
+    "name": "PROJECT_NAME"
   },
   "api": {
-    "projectId": "jjdfz6wn",
-    "dataset": "dbset"
+    "projectId": "PROJECT_ID",
+    "dataset": "DATASET_ID"
   },
   "plugins": [
     "@sanity/base",
