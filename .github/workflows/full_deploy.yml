@@ -3,8 +3,31 @@ on:
     push:
       branches: [ master ]
 jobs:
-  deploy:
+  studio:
     runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'Initial Commit')"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: install n build
+        run: |
+             npm install
+             npm run build-studio && cp studio/netlify.toml studio/dist
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=studio/dist --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+  web:
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, 'Initial Commit')"
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
