@@ -1,4 +1,4 @@
-name: Web Build && Deploy
+name: Studio and Web | Build and Deploy
 on:
     push:
       branches: [ master ]
