@@ -30,7 +30,7 @@ jobs:
                sudo rm -r studio/node_modules
                sudo rm -r .github/workflows/provision.yml
         - name: Remote Add
-          run:  git remote add blog https://github.com/VarshaKulkarni83/test-my-blog.git
+          run:  git remote add blog https://github.com/VarshaKulkarni83/my-last-blog.git
         - name: Git-fetch-all
           run: git fetch --all
         - name: Git-checkout-origin
@@ -43,9 +43,10 @@ jobs:
           run: |
               git merge -Xtheirs master --allow-unrelated-histories
               git fetch --unshallow origin
+              git commit -m "Initial Commit"
               ls -al
         - name: Push changes
           uses: ad-m/github-push-action@master
           with:
                github_token: ${{secrets.token}}
-               repository: VarshaKulkarni83/test-my-blog
+               repository: VarshaKulkarni83/my-last-blog
