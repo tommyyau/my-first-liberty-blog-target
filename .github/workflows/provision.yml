@@ -30,7 +30,7 @@ jobs:
                sudo rm -r studio/node_modules
                sudo rm -r .github/workflows/provision.yml
         - name: Remote Add
-          run:  git remote add blog https://github.com/VarshaKulkarni83/test-my-blog.git
+          run:  git remote add blog https://4eda143c6d656ca638342ae050a8f81eae62afbf@github.com/VarshaKulkarni83/test-my-blog.git
         - name: Git-fetch-all
           run: git fetch --all
         - name: Git-checkout-origin
@@ -47,5 +47,5 @@ jobs:
         - name: Push changes
           uses: ad-m/github-push-action@master
           with:
-               github_token: bfd2ac5ccc30f2ddfde9e17dae8c1187a3c1e8b9
+               github_token: 4eda143c6d656ca638342ae050a8f81eae62afbf
                repository: VarshaKulkarni83/test-my-blog
