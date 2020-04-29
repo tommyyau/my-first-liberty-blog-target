@@ -3,6 +3,8 @@ on:
   # ONLY triggers on master branch
   repository_dispatch:
     types: [content-update-build]
+  push:
+    branches: master
 jobs:
     web:
         runs-on: ubuntu-latest
