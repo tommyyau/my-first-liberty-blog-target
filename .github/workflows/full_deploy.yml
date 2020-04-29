@@ -13,11 +13,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: install n build
+      - name: Build Studio
         run: |
              npm install
              npm run build-studio && cp studio/netlify.toml studio/dist
-      - name: Deploy to netlify
+      - name: Deploy Studio to Netlify
         uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -35,13 +35,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: install n build
+      - name: Build Website
         env:
             SANITY_DEPLOY_STUDIO_TOKEN: ${{secrets.SANITY_AUTH_TOKEN}}
         run: |
              npm install
              npm run build-web
-      - name: Deploy to netlify
+      - name: Deploy Web to netlify
         uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
