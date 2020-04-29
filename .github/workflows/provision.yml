@@ -1,5 +1,8 @@
 name: Platform Liberty Theme Project Setup
-on: [repository_dispatch]
+on: 
+    repository_dispatch:
+      types: [ provision ]   
+
 jobs:
     build:
       runs-on: ubuntu-latest
