@@ -40,6 +40,7 @@ jobs:
         - name: Git-merge
           run: |
                git commit -am "Initial Commit"
+               git fetch --unshallow origin
                ls -al
         - name: Push changes
           uses: ad-m/github-push-action@master
