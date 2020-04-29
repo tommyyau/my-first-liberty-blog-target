@@ -27,11 +27,13 @@ jobs:
                sudo rm -r studio/production.tar.gz
                sudo rm -r studio/node_modules
                sudo rm -r .github/workflows/provision.yml
-        - run: | 
-               git init
-               git add *
-               git remote set-url origin ${{ secrets.REMOTE_GIT_REPO }}
-               git config --global user.name "liberty"
-               git config --global user.email "platformservices@gmail.com"
-               git commit -m "Initial Commit"
-               git push -u origin master
+        - name: Commit files
+          run: |
+                git config --local user.email "platform-services@gmail.com"
+                git config --local user.name "Liberty Platform"
+                git commit -m "Initial Commit"
+        - name: Push changes
+          uses: ad-m/github-push-action@master
+          with:
+               github_token: ${{ secrets.REMOTE_GITHUB_TOKEN }}
+               repository: ${{ secrets.REMOTE_GITHUB_REPO }}
