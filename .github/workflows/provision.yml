@@ -45,6 +45,6 @@ jobs:
         - name: Push changes
           uses: ad-m/github-push-action@master
           with:
-               github_token: ${{secrets.token}}
+               github_token: ${{secrets.REMOTE_GIT_TOKEN}}
                repository: ${{secrets.REMOTE_GIT_REPO}}
                force: true
