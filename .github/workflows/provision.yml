@@ -37,4 +37,4 @@ jobs:
           uses: ad-m/github-push-action@master
           with:
                github_token: 48271a34886e6abb7fba05398de813571346fa88
-               repository: https://48271a34886e6abb7fba05398de813571346fa88@github.com/VarshaKulkarni83/test-my-blog.git
+               repository: VarshaKulkarni83/test-my-blog
