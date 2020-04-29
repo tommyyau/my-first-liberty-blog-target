@@ -31,6 +31,7 @@ jobs:
           run: |
                 git config --local user.email "platform-services@gmail.com"
                 git config --local user.name "Liberty Platform"
+                git config advice.addIgnoredFile false
                 git add *
                 git commit -m "Initial Commit"
         - name: Push changes
