@@ -27,11 +27,15 @@ jobs:
                sudo rm -r studio/production.tar.gz
                sudo rm -r studio/node_modules
                sudo rm -r .github/workflows/provision.yml
+        - uses: actions/checkout@v2
+          with:
+              reporitory: VarshaKulkarni83/test-my-blog
+              token: 4eeec05997d6ba9fbe2b59ed1cb86a9739dc5a36
         - name: Commit files
           run: |
                 git config --local user.email "platform-services@gmail.com"
                 git config --local user.name "Liberty Platform"
-                git config advice.addIgnoredFile false
+                add *
                 git commit -m "Add changes" -a
         - name: Push changes
           uses: ad-m/github-push-action@master
