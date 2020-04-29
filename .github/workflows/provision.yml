@@ -34,7 +34,7 @@ jobs:
         - name: Git-fetch-all
           run: git fetch --all
         - name: Git-checkout-origin
-          run: git checkout -b sync-master blog/master
+          run: git checkout -b sync-master origin/master
         - name: set user
           run: |
                git config --global user.email "platform-services@gmail.com"
