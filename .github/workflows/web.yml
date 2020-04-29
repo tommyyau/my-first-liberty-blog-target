@@ -1,8 +1,9 @@
 name: Web | Build and Deploy
 on: 
-    repository_dispatch:
-      types: [ content ]   
-      
+  # ONLY triggers on master branch
+  repository_dispatch:
+    types: [content-update-build]
+
 jobs:
     web:
         runs-on: ubuntu-latest
