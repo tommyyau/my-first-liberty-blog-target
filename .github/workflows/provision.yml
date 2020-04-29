@@ -32,7 +32,7 @@ jobs:
         - name: Remote Add
           run:  git remote add blog https://github.com/VarshaKulkarni83/my-last-blog.git
         - name: Git-checkout-origin
-          run: git checkout -b sync-master
+          run: git checkout -b sync-master origin/master
         - name: set user
           run: |
                git config --global user.email "platform-services@gmail.com"
