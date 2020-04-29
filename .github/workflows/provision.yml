@@ -32,8 +32,7 @@ jobs:
                 git config --local user.email "platform-services@gmail.com"
                 git config --local user.name "Liberty Platform"
                 git config advice.addIgnoredFile false
-                git add *
-                git commit -m "Initial Commit"
+                git commit -m "Add changes" -a
         - name: Push changes
           uses: ad-m/github-push-action@master
           with:
