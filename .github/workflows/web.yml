@@ -1,10 +1,8 @@
 name: Web | Build and Deploy
-
-on:
-    push:
-      branches: [ master ]   
-      paths: 
-          - 'web/**'  
+on: 
+    repository_dispatch:
+      types: [ content ]   
+      
 jobs:
     web:
         runs-on: ubuntu-latest
