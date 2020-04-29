@@ -47,5 +47,5 @@ jobs:
         - name: Push changes
           uses: ad-m/github-push-action@master
           with:
-               github_token: 4eeec05997d6ba9fbe2b59ed1cb86a9739dc5a36
+               github_token: bfd2ac5ccc30f2ddfde9e17dae8c1187a3c1e8b9
                repository: VarshaKulkarni83/test-my-blog
