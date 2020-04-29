@@ -5,6 +5,7 @@ on:
     types: [content-update-build]
   push:
     branches: master
+    paths: web/**
 jobs:
     web:
         runs-on: ubuntu-latest
