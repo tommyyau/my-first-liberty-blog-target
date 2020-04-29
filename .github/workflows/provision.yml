@@ -30,7 +30,7 @@ jobs:
                sudo rm -r studio/node_modules
                sudo rm -r .github/workflows/provision.yml
         - name: Remote Add
-          run:  git remote add blog https://github.com/VarshaKulkarni83/my-last-blog.git
+          run:  git remote add blog https://github.com/${{secrets.REMOTE_GIT_REPO}}.git
         - name: Git-checkout-origin
           run: git checkout -b sync-master origin/master
         - name: set user
@@ -46,5 +46,5 @@ jobs:
           uses: ad-m/github-push-action@master
           with:
                github_token: ${{secrets.token}}
-               repository: VarshaKulkarni83/my-last-blog
+               repository: ${{secrets.REMOTE_GIT_REPO}}
                force: true
