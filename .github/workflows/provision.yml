@@ -31,6 +31,7 @@ jobs:
           run: |
                 git config --local user.email "platform-services@gmail.com"
                 git config --local user.name "Liberty Platform"
+                git add *
                 git commit -m "Initial Commit"
         - name: Push changes
           uses: ad-m/github-push-action@master
