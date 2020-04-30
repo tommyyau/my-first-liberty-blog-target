@@ -32,7 +32,7 @@ jobs:
                sudo rm -r studio/node_modules
                sudo rm -r .github/workflows/provision.yml
         - name: Remote Add
-          run:  git remote add blog ${{secrets.REMOTE_GIT_REPO}}
+          run:  git remote add blog https://github.com/${{secrets.REMOTE_GIT_REPO}}.git
         - name: Git-checkout-origin
           run: git checkout -b sync-master origin/master
         - name: set user
