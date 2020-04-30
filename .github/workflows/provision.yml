@@ -29,7 +29,6 @@ jobs:
                sed -i -e 's/"PROJECT_ID"/'$PROJECT_ID'/g' web/.env.production
                sed -i -e 's/"DATASET_ID"/'$DATASET'/g' web/.env.production
                sudo rm -r temp
-               sudo rm -r studio/production.tar.gz
                sudo rm -r studio/node_modules
                sudo rm -r .github/workflows/provision.yml
         - name: Remote Add
